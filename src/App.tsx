@@ -1,5 +1,7 @@
 import { Container, Title } from '@/styles'
 import TodoList from '@/component/TodoList'
+import NewTodo from '@/component/NewTodo'
+import { useState } from 'react';
 
 interface Todo {
   id: number;
@@ -7,18 +9,25 @@ interface Todo {
   completed: boolean;
 }
 
-const todos: Todo[] = [
-  { id: 1, text: '할일 1', completed: false },
-  { id: 2, text: '할일 2', completed: true },
-  { id: 3, text: '할일 3', completed: false },
-];
-
 function App() {
+  const [todos, setTodos] = useState<Todo[]>([]);
+  
+  const addTodo = (text: string) => {
+    const newTodo: Todo = {
+      id: Date.now(),
+      text,
+      completed: false,
+    };
+    setTodos((prev) => [...prev, newTodo]);
+  };
+
+
   return (
     <div style={{ height: '100vh', width: '100vw' }}>
       <Container>
         <Title>Hello World</Title>
         <TodoList todos={todos} />
+        <NewTodo onAddTodo={addTodo} />
       </Container>
     </div>
   )
