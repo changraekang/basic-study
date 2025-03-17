@@ -50,3 +50,13 @@ export const Button = styled.button`
     background: ${primaryHover}; 
   }
 `;
+export const List = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+export const ListItem = styled.li`
+  margin: 8px 0;
+  font-size: 18px;
+  color: ${grey2};
+`;
