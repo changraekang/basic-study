@@ -7,7 +7,7 @@ import {
   white,
   primary,
   primaryHover,
-} from './colors';
+} from '@/styles/colors';
 
 
 export const Container = styled.div`
