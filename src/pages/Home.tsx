@@ -1,36 +1,15 @@
-import { Container, Title } from '@/styles'
-import TodoList from '@/component/TodoList'
-import NewTodo from '@/component/NewTodo'
-import { useState } from 'react';
-
-interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
-}
+import { Container, StyledLink, Title } from "@/styles";
+import { Link } from "react-router-dom";
 
 function Home() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  
-  const addTodo = (text: string) => {
-    const newTodo: Todo = {
-      id: Date.now(),
-      text,
-      completed: false,
-    };
-    setTodos((prev) => [...prev, newTodo]);
-  };
-
-
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div style={{ height: "100vh", width: "100vw" }}>
       <Container>
-        <Title>Hello Vite TodoList</Title>
-        <TodoList todos={todos} />
-        <NewTodo onAddTodo={addTodo} />
+        <Title>My study List</Title>
+        <StyledLink to="/todoList">Todo List</StyledLink>
       </Container>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
