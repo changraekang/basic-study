@@ -7,6 +7,7 @@ function Home() {
       <Container>
         <Title>My study List</Title>
         <StyledLink to="/todoList">Todo List</StyledLink>
+        <StyledLink to="/memo">Memo</StyledLink>
       </Container>
     </div>
   );
