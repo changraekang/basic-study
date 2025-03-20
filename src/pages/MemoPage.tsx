@@ -1,16 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import {
-  Container,
-  Title,
-  Form,
-  Input,
-  Button,
-  List,
-  ListItem,
-  StyledLink,
-} from "@/styles/index";
+import { Container, Title, List, ListItem, StyledLink } from "@/styles/index";
 import { white, primary, grey1 } from "@/styles/colors";
+import { memoState } from "@/assets/atoms/memoAtom";
+import { useRecoilValue } from "recoil";
 
 // src/types/memo.ts
 export interface Memo {
@@ -33,19 +26,6 @@ const MemoTitle = styled(Title)`
   color: ${primary};
 `;
 
-const MemoForm = styled(Form)`
-  flex-direction: column;
-  align-items: stretch;
-`;
-
-const MemoInput = styled(Input)`
-  margin-bottom: 10px;
-`;
-
-const MemoButton = styled(Button)`
-  align-self: flex-end;
-`;
-
 const MemoList = styled(List)`
   margin-top: 20px;
 `;
@@ -56,7 +36,7 @@ const MemoListItem = styled(ListItem)`
 `;
 
 const MemoPage = () => {
-  const [memos, setMemos] = useState<Memo[]>([]);
+  const memos = useRecoilValue(memoState);
 
   return (
     <div style={{ height: "100vh", width: "100vw" }}>

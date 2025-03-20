@@ -1,7 +1,7 @@
-import { Container, Title } from '@/styles'
-import TodoList from '@/component/TodoList'
-import NewTodo from '@/component/NewTodo'
-import { useState } from 'react';
+import { Container, Title } from "@/styles";
+import TodoList from "@/component/todo/TodoList";
+import NewTodo from "@/component/todo/NewTodo";
+import { useState } from "react";
 
 interface Todo {
   id: number;
@@ -11,7 +11,7 @@ interface Todo {
 
 function TodoPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  
+
   const addTodo = (text: string) => {
     const newTodo: Todo = {
       id: Date.now(),
@@ -21,16 +21,15 @@ function TodoPage() {
     setTodos((prev) => [...prev, newTodo]);
   };
 
-
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div style={{ height: "100vh", width: "100vw" }}>
       <Container>
         <Title>Hello Vite TodoList</Title>
         <TodoList todos={todos} />
         <NewTodo onAddTodo={addTodo} />
       </Container>
     </div>
-  )
+  );
 }
 
-export default TodoPage
+export default TodoPage;

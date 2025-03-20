@@ -1,5 +1,4 @@
 import { Container, StyledLink, Title } from "@/styles";
-import { Link } from "react-router-dom";
 
 function Home() {
   return (
